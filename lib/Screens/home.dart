@@ -34,7 +34,6 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         textTheme: Theme.of(context).textTheme,
-        elevation: 12,
         title: Text("NASAPedia"),
         actions: [
           Switch(
@@ -53,9 +52,10 @@ class _HomePageState extends State<HomePage> {
         itemCount: 11,
         itemBuilder: (context, index) {
           return MissionTile(
-              title: "Apollo ${index + 7}",
-              subtitle: "1968-10-11",
-              imageName: "apollo${index+7}");
+            title: "Apollo ${index + 7}",
+            subtitle: "1968-10-11",
+            imageName: "apollo${index + 7}",
+          );
         },
       ),
     );
