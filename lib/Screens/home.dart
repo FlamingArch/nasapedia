@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
         itemCount: 11,
         itemBuilder: (context, index) {
           return MissionTile(
-            title: "Apollo ${index + 7}",
+            id: index + 7,
             subtitle: "1968-10-11",
             imageName: "apollo${index + 7}",
           );

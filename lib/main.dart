@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nasapedia/Model/mission.dart';
-import 'package:nasapedia/Screens/mission.dart';
 import 'Screens/home.dart';
 
 void main() {
