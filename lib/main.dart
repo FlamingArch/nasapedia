@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'Controller/missions_controller.dart';
 import 'Screens/home.dart';
 
 void main() {
@@ -8,6 +10,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomePage());
+    return ChangeNotifierProvider(
+        create: (BuildContext context) => MissionsController(),
+        child: MaterialApp(home: HomePage()));
   }
 }
