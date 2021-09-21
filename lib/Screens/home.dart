@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         textTheme: Theme.of(context).textTheme,
-        title: Text("NASAPedia"),
+        title: Text("Nasapedia"),
       ),
       body: MissionsListView(),
     );

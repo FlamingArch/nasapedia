@@ -10,8 +10,7 @@ class MissionsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<MissionsController>(
-      builder: (context, controller, child) => ListView.separated(
-        separatorBuilder: (context, index) => Divider(),
+      builder: (context, controller, child) => ListView.builder(
         itemCount: controller.missionsCount,
         itemBuilder: (context, index) {
           var mission = controller.missions[index];

@@ -109,7 +109,7 @@ class _AppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         background: Padding(
           padding: const EdgeInsets.all(64.0),
-          child: Image.asset('assets/images/apollo${mission.id}.png'),
+          child: Hero(tag: "Icon",child: Image.asset('assets/images/apollo${mission.id}.png')),
         ),
         title: Text("Apollo ${mission.id}"),
       ),

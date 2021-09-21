@@ -17,17 +17,24 @@ class MissionTile extends StatelessWidget {
   MissionTile(this.model, {Key? key});
   @override
   Widget build(BuildContext context) {
+    String imageLink = "assets/images/apollo${model.id}.png";
+    String missionName = "Apollo ${model.id}";
+    String launchDate = "${model.launchDate ?? "N/A"}";
+    double imageSize = 50;
     return ListTile(
-      title: Text("Apollo ${model.id}"),
-      subtitle: Text("${model.launchDate ?? "N/A"}"),
-      leading: Image.asset("assets/images/apollo${model.id}.png"),
+      title: Text(missionName),
+      subtitle: Text(launchDate),
+      leading: Container(
+        width: imageSize,
+        height: imageSize,
+        child: Hero(tag: "Icon", child: Image.asset(imageLink)),
+      ),
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => MissionPage(MissionModel(
-                crew: model.crew,
-                id: model.id,
-                description: model.description))),
+          builder: (context) => MissionPage(MissionModel(
+              crew: model.crew, id: model.id, description: model.description)),
+        ),
       ),
     );
   }
