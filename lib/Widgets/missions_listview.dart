@@ -13,8 +13,20 @@ class MissionsListView extends StatelessWidget {
       builder: (context, controller, child) => ListView.builder(
         itemCount: controller.missionsCount,
         itemBuilder: (context, index) {
-          var mission = controller.missions[index];
-          return MissionTile(mission);
+          if (index != 0) {
+            var mission = controller.missions[index - 1];
+            return MissionTile(mission);
+          } else {
+            return Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.black12))),
+              child: Text(
+                "Missions".toUpperCase(),
+                style: Theme.of(context).textTheme.subtitle2
+              ),
+            );
+          }
           // return Text("Apollo ${mission.id}");
         },
       ),
