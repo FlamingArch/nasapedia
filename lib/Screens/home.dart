@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nasapedia/Widgets/mission_tile.dart';
 import 'package:nasapedia/Widgets/missions_listview.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);

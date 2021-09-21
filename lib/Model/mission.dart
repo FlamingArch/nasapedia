@@ -1,6 +1,6 @@
 class MissionModel {
   int? id;
-  List<Map<String, String>>? crew;
+  List<dynamic>? crew;
   String? description;
   String? launchDate;
 

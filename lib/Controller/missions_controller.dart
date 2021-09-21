@@ -35,7 +35,7 @@ class MissionsController extends ChangeNotifier {
       missions.add(
         MissionModel(
           id: element['id'],
-          // crew: element['crew'],
+          crew: (element['crew']),
           description: element['description'],
           launchDate: element['launchDate'],
         ),
