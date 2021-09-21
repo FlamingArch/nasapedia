@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nasapedia/Controller/missions_controller.dart';
 import 'package:nasapedia/Widgets/missions_listview.dart';
 import 'package:nasapedia/constants.dart';
 
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
       body: MissionsListView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print("Hello World");
+          MissionsController.openNASAWebsite();
         },
         child: Icon(Icons.link),
         backgroundColor: kColorAccent1,

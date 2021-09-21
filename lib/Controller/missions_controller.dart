@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:nasapedia/Model/mission.dart';
 
 class MissionsController extends ChangeNotifier {
@@ -42,5 +43,14 @@ class MissionsController extends ChangeNotifier {
       );
     }
     return missions;
+  }
+
+  static void openNASAWebsite() async {
+    const url = "https://www.nasa.gov/";
+    if (await canLaunch(url))
+      await launch(url);
+    else
+      // can't launch url, there is some error
+      throw "Could not launch $url";
   }
 }
