@@ -18,6 +18,7 @@ class MissionsController extends ChangeNotifier {
 
   void setMissions() async {
     this._missions = await getMissions();
+    notifyListeners();
   }
 
   static Future<dynamic> fetchJSONContents() async {
