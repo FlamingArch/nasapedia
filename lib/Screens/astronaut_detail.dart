@@ -113,7 +113,7 @@ class _AppBar extends StatelessWidget {
               'assets/images/${astronaut.id}.jpg',
               fit: BoxFit.cover,
             )),
-        title: Text("Apollo ${astronaut.id}"),
+        title: Text("${astronaut.name}"),
       ),
     );
   }
