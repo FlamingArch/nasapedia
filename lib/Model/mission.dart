@@ -4,5 +4,10 @@ class MissionModel {
   String? description;
   String? launchDate;
 
-  MissionModel({this.id, this.description, this.crew, this.launchDate});
+  MissionModel({
+    this.id,
+    this.description,
+    this.crew,
+    this.launchDate,
+  });
 }

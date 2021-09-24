@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nasapedia/Screens/astronauts.dart';
 import 'package:nasapedia/Screens/missions.dart';
 import 'package:nasapedia/constants.dart';
 
@@ -24,7 +25,7 @@ class HomePageState extends State<HomePage> {
         currentIndex: _selectedIndex,
         onTap: (index) => setState(() => _selectedIndex = index),
       ),
-      body: [MissionsPage(), Text("Astronomical")][_selectedIndex],
+      body: [MissionsPage(), AstronautsPage()][_selectedIndex],
     );
   }
 }
