@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nasapedia/Screens/tabbedView.dart';
 import 'package:provider/provider.dart';
 import 'Controller/missions_controller.dart';
-import 'Screens/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,6 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
         create: (BuildContext context) => MissionsController(),
-        child: MaterialApp(home: HomePage()));
+        child: MaterialApp(home: TabbedView()));
   }
 }
