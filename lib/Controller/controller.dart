@@ -82,4 +82,6 @@ class Controller extends ChangeNotifier {
       // can't launch url, there is some error
       throw "Could not launch $url";
   }
+
+  
 }

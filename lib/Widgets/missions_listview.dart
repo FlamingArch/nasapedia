@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nasapedia/Controller/missions_controller.dart';
+import 'package:nasapedia/Controller/controller.dart';
 import 'package:nasapedia/Widgets/listTitle.dart';
 import 'package:provider/provider.dart';
 

@@ -15,7 +15,7 @@ class AstronautsListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String imageLink = "assets/images/${astronaut.id}.jpg";
-    String astronautName = "Apollo ${astronaut.name}";
+    String astronautName = "${astronaut.name}";
     double imageSize = 50;
     return ListTile(
       title: Text(astronautName),
@@ -25,7 +25,7 @@ class AstronautsListTile extends StatelessWidget {
         width: imageSize,
         height: imageSize,
         child: Hero(
-            tag: "Icon",
+            tag: "Icon${astronaut.id}",
             child: Image.asset(
               imageLink,
               fit: BoxFit.cover,

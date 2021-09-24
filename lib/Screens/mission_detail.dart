@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nasapedia/Model/mission.dart';
+import 'package:nasapedia/Widgets/listTitle.dart';
 import 'package:nasapedia/constants.dart';
 
 class MissionDetailPage extends StatelessWidget {
@@ -11,6 +12,7 @@ class MissionDetailPage extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(slivers: [
         _AppBar(mission: mission),
+        _ListHeading("Description"),
         _Description(mission: mission),
         _ListHeading("Crew"),
         _CrewList(mission: mission)
@@ -30,11 +32,7 @@ class _ListHeading extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList(
         delegate: SliverChildBuilderDelegate((context, index) {
-      return ListTile(
-          title: Text(
-        text,
-        style: Theme.of(context).textTheme.headline4,
-      ));
+      return ThemeListTitle(text);
     }, childCount: 1));
   }
 }
@@ -69,24 +67,24 @@ class _CrewList extends StatelessWidget {
 
   final MissionModel mission;
 
+  
+
   @override
   Widget build(BuildContext context) {
     return SliverList(
         delegate: SliverChildBuilderDelegate((context, index) {
-      return Card(
-        child: ListTile(
-            minVerticalPadding: 32,
-            leading: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: Image.asset(
-                  'assets/images/${(mission.crew)?[index]['name']}.jpg'),
+      return ListTile(
+          minVerticalPadding: 32,
+          leading: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
             ),
-            title: Text((mission.crew)?[index]['name'].toString() ??
-                "Error Fetching Crew Member")),
-      );
+            clipBehavior: Clip.antiAlias,
+            child: Image.asset(
+                'assets/images/${(mission.crew)?[index]['name']}.jpg'),
+          ),
+          title: Text((mission.crew)?[index]['name'].toString() ??
+              "Error Fetching Crew Member"));
     }, childCount: mission.crew?.length));
   }
 }
@@ -104,14 +102,28 @@ class _AppBar extends StatelessWidget {
     return SliverAppBar(
       backgroundColor: kColorAccent1,
       pinned: true,
+      snap: true,
       floating: true,
       expandedHeight: 400,
       flexibleSpace: FlexibleSpaceBar(
-        background: Padding(
-          padding: const EdgeInsets.all(64.0),
-          child: Hero(
-              tag: "Icon",
-              child: Image.asset('assets/images/apollo${mission.id}.png')),
+        background: Container(
+          color: Colors.black,
+          child: Stack(
+            children: [
+              Positioned.fill(
+                  child: Image.asset(
+                'assets/images/star_bg.jpg',
+                fit: BoxFit.cover,
+              )),
+              Padding(
+                padding: const EdgeInsets.all(64.0),
+                child: Hero(
+                    tag: "Icon${mission.id}",
+                    child:
+                        Image.asset('assets/images/apollo${mission.id}.png')),
+              ),
+            ],
+          ),
         ),
         title: Text("Apollo ${mission.id}"),
       ),

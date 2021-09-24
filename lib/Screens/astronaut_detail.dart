@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nasapedia/Model/astronaut.dart';
+import 'package:nasapedia/Widgets/listTitle.dart';
 import 'package:nasapedia/constants.dart';
 
 class AstronautDetailPage extends StatelessWidget {
@@ -11,33 +12,29 @@ class AstronautDetailPage extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(slivers: [
         _AppBar(astronaut: astronaut),
+        _ListHeading("Description"),
         _Description(astronaut: astronaut),
-        // _ListHeading("Crew"),
         // _CrewList(astronaut: astronaut)
       ]),
     );
   }
 }
 
-// class _ListHeading extends StatelessWidget {
-//   final String text;
-//   const _ListHeading(
-//     this.text, {
-//     Key? key,
-//   }) : super(key: key);
+class _ListHeading extends StatelessWidget {
+  final String text;
+  const _ListHeading(
+    this.text, {
+    Key? key,
+  }) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return SliverList(
-//         delegate: SliverChildBuilderDelegate((context, index) {
-//       return ListTile(
-//           title: Text(
-//         text,
-//         style: Theme.of(context).textTheme.headline4,
-//       ));
-//     }, childCount: 1));
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+        delegate: SliverChildBuilderDelegate((context, index) {
+      return ThemeListTitle("About");
+    }, childCount: 1));
+  }
+}
 
 class _Description extends StatelessWidget {
   const _Description({
@@ -108,10 +105,30 @@ class _AppBar extends StatelessWidget {
       expandedHeight: 280,
       flexibleSpace: FlexibleSpaceBar(
         background: Hero(
-            tag: "Icon",
-            child: Image.asset(
-              'assets/images/${astronaut.id}.jpg',
-              fit: BoxFit.cover,
+            tag: "Icon${astronaut.id}",
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: Image.asset(
+                    'assets/images/${astronaut.id}.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned.fill(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.black.withOpacity(0.0),
+                          Colors.black.withOpacity(0.4),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             )),
         title: Text("${astronaut.name}"),
       ),
