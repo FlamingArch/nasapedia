@@ -32,8 +32,7 @@ class MissionTile extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => MissionPage(MissionModel(
-              crew: model.crew, id: model.id, description: model.description)),
+          builder: (context) => MissionPage(model),
         ),
       ),
     );
