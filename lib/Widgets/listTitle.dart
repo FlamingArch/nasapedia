@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class MaterialListTitle extends StatelessWidget {
+class ThemeListTitle extends StatelessWidget {
   final String title;
-  const MaterialListTitle(
+  const ThemeListTitle(
     this.title, {
     Key? key,
   }) : super(key: key);

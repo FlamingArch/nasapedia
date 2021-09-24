@@ -16,9 +16,9 @@ class MissionsListView extends StatelessWidget {
         itemBuilder: (context, index) {
           if (index != 0) {
             var mission = controller.missions[index - 1];
-            return MissionTile(mission);
+            return ThemeListTile(mission);
           } else {
-            return MaterialListTitle("Missions");
+            return ThemeListTitle("Missions");
           }
           // return Text("Apollo ${mission.id}");
         },

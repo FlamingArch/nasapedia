@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nasapedia/Model/mission.dart';
 import 'package:nasapedia/constants.dart';
 
-class MissionPage extends StatelessWidget {
+class MissionDetailPage extends StatelessWidget {
   final MissionModel mission;
-  const MissionPage(this.mission, {Key? key}) : super(key: key);
+  const MissionDetailPage(this.mission, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,9 @@ class _AppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         background: Padding(
           padding: const EdgeInsets.all(64.0),
-          child: Hero(tag: "Icon",child: Image.asset('assets/images/apollo${mission.id}.png')),
+          child: Hero(
+              tag: "Icon",
+              child: Image.asset('assets/images/apollo${mission.id}.png')),
         ),
         title: Text("Apollo ${mission.id}"),
       ),
