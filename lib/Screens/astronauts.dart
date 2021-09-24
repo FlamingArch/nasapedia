@@ -12,6 +12,7 @@ class AstronautsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         textTheme: Theme.of(context).textTheme,
+        centerTitle: true,
         elevation: 0,
         title: Text("Nasapedia"),
       ),
