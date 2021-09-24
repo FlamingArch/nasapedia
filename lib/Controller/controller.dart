@@ -83,5 +83,7 @@ class Controller extends ChangeNotifier {
       throw "Could not launch $url";
   }
 
-  
+  AstronautModel getAstronaut(id) {
+    return _astronauts.firstWhere((element) => element.id == id);
+  }
 }

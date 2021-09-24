@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nasapedia/Controller/controller.dart';
 import 'package:nasapedia/Model/mission.dart';
+import 'package:nasapedia/Screens/astronaut_detail.dart';
 import 'package:nasapedia/Widgets/listTitle.dart';
 import 'package:nasapedia/constants.dart';
+import 'package:provider/provider.dart';
 
 class MissionDetailPage extends StatelessWidget {
   final MissionModel mission;
@@ -67,24 +70,33 @@ class _CrewList extends StatelessWidget {
 
   final MissionModel mission;
 
-  
-
   @override
   Widget build(BuildContext context) {
     return SliverList(
         delegate: SliverChildBuilderDelegate((context, index) {
-      return ListTile(
+      return Consumer<Controller>(builder: (context, controller, _) {
+        var astronaut = controller.getAstronaut((mission.crew)![index]['name']);
+        return ListTile(
           minVerticalPadding: 32,
           leading: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-            ),
+            decoration: BoxDecoration(shape: BoxShape.circle),
             clipBehavior: Clip.antiAlias,
             child: Image.asset(
                 'assets/images/${(mission.crew)?[index]['name']}.jpg'),
           ),
-          title: Text((mission.crew)?[index]['name'].toString() ??
-              "Error Fetching Crew Member"));
+          title: Text(astronaut.name ?? "Error Fetching Astronaut"),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => AstronautDetailPage(astronaut)),
+          ),
+        );
+      });
+
+      // (
+      //   child: Text((mission.crew)?[index]['name'].toString() ??
+      //       "Error Fetching Crew Member"),
+      // ));
     }, childCount: mission.crew?.length));
   }
 }
